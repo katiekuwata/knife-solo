@@ -82,9 +82,9 @@ class Chef
         @chefignore ||= ::Chef::Cookbook::Chefignore.new("./")
       end
 
-      # cygwin rsync path must be adjusted to work
+      # msys rsync path must be adjusted to work
       def adjust_rsync_path(path)
-        path.gsub(/^(\w):/) { "/cygdrive/#{$1}" }
+        path.gsub(/^(\w):/) { "/#{$1}" }
       end
 
       def adjust_rsync_path_on_node(path)
